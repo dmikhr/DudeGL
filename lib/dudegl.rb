@@ -61,7 +61,10 @@ class DudeGl
               @body_left_x, @body_left_top_y + BODY_LENGTH)
   end
 
-  def draw_arm(method_name, length, body_side, x0, y0, args_num)
+  def draw_arm(side_arms, x0, y0, body_side)
+    method_name = side_arms[:name]
+    length = side_arms[:length]
+    args_num = side_arms[:args]
     length <= METHOD_LENGTH_OK_MAX ? arm_length = ARM_LENGTH : arm_length = ARM_LENGTH_LONG
     arm_length = - arm_length if body_side == :left
 
@@ -76,14 +79,12 @@ class DudeGl
 
     @left_arms_num.times do |i|
       hy = (1.05 * @body_left_top_y + i * @arms_step).round
-      draw_arm(@left_arms[i][:name], @left_arms[i][:length], :left,
-               @body_left_x, hy, @left_arms[i][:args])
+      draw_arm(@left_arms[i], @body_left_x, hy, :left)
     end
 
     @right_arms_num.times do |i|
       hy = (1.05 * @body_right_top_y + i * @arms_step).round
-      draw_arm(@right_arms[i][:name], @right_arms[i][:length], :right,
-               @body_right_x, hy, @right_arms[i][:args])
+      draw_arm(@right_arms[i], @body_right_x, hy, :right)
     end
   end
 
