@@ -15,6 +15,7 @@ class DudeGl
   METHOD_LENGTH_OK_MAX = 4
   ARM_LENGTH = 40
   ARM_LENGTH_LONG = 70
+  ELLIPSE_LENGTH = 10
 
   FINGER_LENGTH = 10
   FINGER_ANGLE_START = Math::PI * (3 / 4.0)
@@ -65,10 +66,17 @@ class DudeGl
     method_name = side_arms[:name]
     length = side_arms[:length]
     args_num = side_arms[:args]
+    conditions = side_arms[:conditions]
+
     length <= METHOD_LENGTH_OK_MAX ? arm_length = ARM_LENGTH : arm_length = ARM_LENGTH_LONG
     arm_length = - arm_length if body_side == :left
 
-    draw_line(@canvas, x0, y0, x0 + arm_length, y0)
+    if conditions > 0
+      draw_conditions(conditions, arm_length, x0, y0, body_side)
+    else
+      draw_line(@canvas, x0, y0, x0 + arm_length, y0)
+    end
+
     draw_caption(@canvas, method_name, 0.8 * (x0 + arm_length).round, (0.95 * y0).round)
     draw_fingers(args_num, x0 + arm_length, y0, body_side)
   end
@@ -85,6 +93,26 @@ class DudeGl
     @right_arms_num.times do |i|
       hy = (1.05 * @body_right_top_y + i * @arms_step).round
       draw_arm(@right_arms[i], @body_right_x, hy, :right)
+    end
+  end
+
+  def draw_conditions(conditions, arm_length, x0, y0, body_side)
+    lines_num = conditions + 1
+    line_length = ((arm_length.abs - conditions * ELLIPSE_LENGTH) / lines_num).round
+    body_side == :left ? orientation = -1 : orientation = 1
+
+    x0 = x0
+    x1 = x0 + line_length * orientation
+
+    lines_num.times do |i|
+      draw_line(@canvas, x0, y0, x1, y0)
+
+      @canvas.ellipse cx: (x1 + ELLIPSE_LENGTH * orientation / 2).round,
+                      cy: y0, rx: (ELLIPSE_LENGTH / 2).round, ry: (ELLIPSE_LENGTH / 4).round,
+                      style: Config::STYLE, fill: 'white' if i < lines_num - 1
+
+      x0 = x0 + (line_length + ELLIPSE_LENGTH) * orientation
+      x1 = x0 + line_length * orientation
     end
   end
 
