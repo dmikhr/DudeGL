@@ -1,5 +1,5 @@
-# require 'dudegl'
-require_relative 'lib/dudegl.rb'
+require 'dudegl'
+# require_relative 'lib/dudegl.rb'
 require_relative 'draw_arms.rb'
 
 object = { name: "ThingCollection",
