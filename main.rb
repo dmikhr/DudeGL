@@ -1,4 +1,5 @@
-require 'dudegl'
+# require 'dudegl'
+require_relative 'lib/dudegl.rb'
 require_relative 'draw_arms.rb'
 
 object = { name: "ThingCollection",
@@ -15,6 +16,6 @@ dudegl = DudeGl.new
 
 canvas = dudegl.create_canvas
 dude = dudegl.create_dude
-DrawArms.new(object, canvas, dude, dudegl)
+DrawArms.new(object, dude, dudegl)
 
 dudegl.save_to_svg "dude_test"

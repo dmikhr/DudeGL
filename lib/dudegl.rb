@@ -1,5 +1,4 @@
 require 'victor'
-require 'byebug'
 require_relative 'dude'
 require_relative 'arm'
 
@@ -9,11 +8,11 @@ class DudeGl
   end
 
   def create_dude
-    @dude = Dude.new(@canvas)
+    Dude.new(@canvas)
   end
 
-  def add_arm(canvas, params, x0, y0, body_side)
-    arm = Arm.new(canvas, params, x0, y0, body_side)
+  def add_arm(params, x0, y0, body_side)
+    Arm.new(@canvas, params, x0, y0, body_side)
   end
 
   def save_to_svg(file_name)

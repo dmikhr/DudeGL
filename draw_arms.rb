@@ -1,9 +1,8 @@
 # custom logic of drawing arms using dudegl API
 class DrawArms
 
-  def initialize(object, canvas, dude, dudegl)
+  def initialize(object, dude, dudegl)
     @object = object
-    @canvas = canvas
     @dude = dude
     @dudegl = dudegl
     draw_arms
@@ -14,11 +13,11 @@ class DrawArms
     divide_arms
 
     @left_arms_num.times do |i|
-      @dudegl.add_arm(@canvas, @left_arms[i], @dude.body_left_x, hy(i), :left)
+      @dudegl.add_arm(@left_arms[i], @dude.body_left_x, hy(i), :left)
     end
 
     @right_arms_num.times do |i|
-       @dudegl.add_arm(@canvas, @right_arms[i], @dude.body_right_x, hy(i), :right)
+       @dudegl.add_arm(@right_arms[i], @dude.body_right_x, hy(i), :right)
     end
   end
 

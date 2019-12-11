@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'dudegl'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.authors = ['Dmitry Khramtsov', 'Ivan Nemytchenko']
   s.email = ["dp@khramtsov.net"]
   s.summary = 'Visualization of code and OOP concepts in a form of human body'
