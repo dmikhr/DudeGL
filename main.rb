@@ -1,4 +1,6 @@
+# require 'dudegl'
 require_relative 'lib/dudegl.rb'
+require_relative 'draw_arms.rb'
 
 object = { name: "ThingCollection",
   :methods=>
@@ -10,6 +12,10 @@ object = { name: "ThingCollection",
     { name: :message, args: 1, length: 6, conditions: 1 },
     { name: :signal, args: 5, length: 10, conditions: 4 }] }
 
-visual = DudeGl.new(object)
+dudegl = DudeGl.new(object)
 
-visual.save_to_svg "dude_test"
+canvas = dudegl.create_canvas
+dude = dudegl.create_dude
+DrawArms.new(object, canvas, dude, dudegl)
+
+dudegl.save_to_svg "dude_test"
