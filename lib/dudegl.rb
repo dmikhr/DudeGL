@@ -71,7 +71,7 @@ class DudeGl
     length <= METHOD_LENGTH_OK_MAX ? arm_length = ARM_LENGTH : arm_length = ARM_LENGTH_LONG
     arm_length = - arm_length if body_side == :left
 
-    if conditions > 0
+    if conditions.positive?
       draw_conditions(conditions, arm_length, x0, y0, body_side)
     else
       draw_line(@canvas, x0, y0, x0 + arm_length, y0)
