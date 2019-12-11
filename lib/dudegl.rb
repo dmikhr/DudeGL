@@ -66,6 +66,7 @@ class DudeGl
     arm_length = - arm_length if body_side == :left
 
     draw_line(@canvas, x0, y0, x0 + arm_length, y0)
+    draw_caption(@canvas, method_name, 0.8 * (x0 + arm_length).round, (0.95 * y0).round)
     draw_fingers(args_num, x0 + arm_length, y0, body_side)
   end
 
