@@ -12,7 +12,7 @@ object = { name: "ThingCollection",
     { name: :message, args: 1, length: 6, conditions: 1 },
     { name: :signal, args: 5, length: 10, conditions: 4 }] }
 
-dudegl = DudeGl.new(object)
+dudegl = DudeGl.new
 
 canvas = dudegl.create_canvas
 dude = dudegl.create_dude
