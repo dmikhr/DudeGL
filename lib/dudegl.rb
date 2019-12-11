@@ -4,7 +4,6 @@ require_relative 'dude'
 require_relative 'arm'
 
 class DudeGl
-
   def create_canvas(width = 400, height = 400)
     @canvas = Victor::SVG.new width: width, height: height, style: { background: 'white' }
   end
