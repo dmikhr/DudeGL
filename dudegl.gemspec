@@ -11,6 +11,8 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
   s.files = [
     'lib/dudegl.rb',
+    'lib/dude.rb',
+    'lib/arm.rb',
     'lib/utils.rb',
     'lib/config.rb'
   ]
