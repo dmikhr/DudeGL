@@ -13,11 +13,11 @@ module Utils
     return 0
   end
 
-  def draw_line(canvas, x1, y1, x2, y2)
-    canvas.line x1: x1, y1: y1, x2: x2, y2: y2, style: Config::STYLE
+  def draw_line(x1, y1, x2, y2)
+    { line: { x1: x1, y1: y1, x2: x2, y2: y2 } }
   end
 
-  def draw_caption(canvas, caption, x, y)
-    canvas.text caption, x: x, y: y, font_family: 'arial', font_size: 9, fill: 'black'
+  def draw_caption(caption, x, y, font_size = 9, orientation = :lr)
+    { text: { x: x, y: y, caption: caption, font_size: font_size, orientation: orientation } }
   end
 end

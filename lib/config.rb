@@ -1,5 +1,4 @@
 module Config
-  STYLE = { stroke: 'black', stroke_width: 1 }
   IMAGE_DIR = 'images'
 
   BODY_LENGTH = 140
@@ -15,4 +14,13 @@ module Config
 
   FINGER_LENGTH = 10
   FINGER_ANGLE_START = Math::PI * (3 / 4.0)
+
+  LEG_LENGTH = 40
+  LEG_LENGTH_LONG = 70
+
+  # size of a square in pixels where dude is depicted
+  DUDE_FRAME_SIZE = 400
+
+  DUDES_PER_ROW_MAX = 3
+  DUDES_ROWS_MAX = 2
 end

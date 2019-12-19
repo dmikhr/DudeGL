@@ -1,40 +1,29 @@
+require 'byebug'
 require_relative 'utils'
 require_relative 'config'
+require_relative 'draw'
+require_relative 'limbs'
+require_relative 'render'
 
 class Dude
-  include Utils
+  def initialize(params)
+    @params = params
+    body = Body.new(params[:name])
 
-  attr_reader :body_right_x, :body_right_top_y, :body_left_x, :body_left_top_y
+    @arms = DrawArms.new(@params, body).arms
+    arms_draw_params = @arms.map { |arm| arm.draw_data }
 
-  def initialize(canvas, width = 400, height = 400)
-    @width = width
-    @height = height
-    @canvas = canvas
-    draw_dude
+    @legs = DrawLegs.new(@params, body).legs
+    legs_draw_params = @legs.map { |leg| leg.draw_data }
+
+    @dude_parts = (body.draw_data + arms_draw_params + legs_draw_params).flatten
   end
 
-  def draw_dude
-    # head center
-    head_center_x = (0.5 * @width).round
-    head_center_y = (0.3 * @height).round
+  def render
+    @svg = Render.new(@dude_parts)
+  end
 
-    @body_right_x, @body_right_top_y = circle_rotate(head_center_x, head_center_y,
-                                                     Config::HEAD_RADIUS,
-                                                     Config::BODY_CENTER + Config::SLIM_FACTOR)
-    @body_left_x, @body_left_top_y = circle_rotate(head_center_x, head_center_y,
-                                                   Config::HEAD_RADIUS,
-                                                   Config::BODY_CENTER - Config::SLIM_FACTOR)
-    # head
-    @canvas.circle cx: head_center_x, cy: head_center_y, r: Config::HEAD_RADIUS,
-                fill: 'white', style: Config::STYLE
-    # right part of a body
-    draw_line(@canvas, @body_right_x, @body_right_top_y,
-              @body_right_x, @body_right_top_y + Config::BODY_LENGTH)
-    # left part of a body
-    draw_line(@canvas, @body_left_x, @body_left_top_y,
-              @body_left_x, @body_left_top_y + Config::BODY_LENGTH)
-    # bottom
-    draw_line(@canvas, @body_right_x, @body_right_top_y + Config::BODY_LENGTH,
-              @body_left_x, @body_left_top_y + Config::BODY_LENGTH)
+  def save(file_name)
+    File.open("images/#{file_name}.svg", 'w') { |file| file.write(@svg.contents) }
   end
 end
