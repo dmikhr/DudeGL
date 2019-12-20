@@ -7,12 +7,6 @@ module Utils
     return [x_rotated, y_rotated]
   end
 
-  def calc_range(fingers_range, args_num)
-    return fingers_range / (args_num - 1).to_f if args_num > 1
-    return fingers_range / args_num.to_f if args_num == 1
-    return 0
-  end
-
   def draw_line(x1, y1, x2, y2)
     { line: { x1: x1, y1: y1, x2: x2, y2: y2 } }
   end

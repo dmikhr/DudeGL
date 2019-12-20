@@ -1,9 +1,6 @@
 require 'byebug'
-require_relative 'utils'
-require_relative 'config'
-require_relative 'draw'
-require_relative 'limbs'
-require_relative 'render'
+# require all filder from current dir and subdirectories
+Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
 class Dudes
   def initialize(params_list)

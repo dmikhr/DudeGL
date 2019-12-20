@@ -12,7 +12,9 @@ Gem::Specification.new do |s|
   s.files = [
     'lib/draw.rb',
     'lib/dudes.rb',
-    'lib/limbs.rb',
+    'lib/limbs/limb.rb',
+    'lib/limbs/arm.rb',
+    'lib/limbs/leg.rb',
     'lib/render.rb',
     'lib/utils.rb',
     'lib/config.rb'
