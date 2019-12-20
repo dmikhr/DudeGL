@@ -17,16 +17,7 @@ class Render
   def hash_to_svg(hash)
     operator, params = hash.first
 
-    case operator
-    when :line
-      svg_line(params)
-    when :circle
-      svg_circle(params)
-    when :ellipse
-      svg_ellipse(params)
-    when :text
-      svg_text(params)
-    end
+    send("svg_#{operator.to_s}".to_sym, params) if defined? operator
   end
 
   def svg_line(params)
