@@ -16,7 +16,8 @@ class Arm < Limb
     conditions = @params[:conditions]
     args_num = @params[:args]
 
-    length <= Config::METHOD_LENGTH_OK_MAX ? arm_length = Config::ARM_LENGTH : arm_length = Config::ARM_LENGTH_LONG
+    arm_length = limb_length(length, Config::METHOD_LENGTH_OK_MAX,
+                             Config::ARM_LENGTH, Config::ARM_LENGTH_LONG)
     arm_length = - arm_length if @body_side == :left
     @end_x = @x0 + arm_length
 
@@ -41,9 +42,9 @@ class Arm < Limb
       @draw_data << draw_line(x0, y0, x1, y0)
 
       @draw_data << { ellipse: {
-        cx: (x1 + Config::ELLIPSE_LENGTH * orientation / 2).round,
-                        cy: y0, rx: (Config::ELLIPSE_LENGTH / 2).round, ry: (Config::ELLIPSE_LENGTH / 4).round
-        }} if i < lines_num - 1
+                      cx: (x1 + Config::ELLIPSE_LENGTH * orientation / 2).round,
+                      cy: y0, rx: (Config::ELLIPSE_LENGTH / 2).round,
+                      ry: (Config::ELLIPSE_LENGTH / 4).round }} if i < lines_num - 1
 
       x0 = x0 + (line_length + Config::ELLIPSE_LENGTH) * orientation
       x1 = x0 + line_length * orientation
@@ -51,16 +52,14 @@ class Arm < Limb
   end
 
   def draw_fingers(args_num)
-    fingers_range = Math::PI / 2.0
-
     if body_side == :left
       finger_angle_start = Config::FINGER_ANGLE_START
-      finger_angle_end = finger_angle_start + fingers_range
-      finger_angle_step = calc_fingers_range(fingers_range, args_num)
+      finger_angle_end = finger_angle_start + Config::FINGERS_RANGE
+      finger_angle_step = calc_fingers_range(Config::FINGERS_RANGE, args_num)
     else
       finger_angle_start = - Config::FINGER_ANGLE_START + Math::PI
-      finger_angle_end = finger_angle_start - fingers_range
-      finger_angle_step = - calc_fingers_range(fingers_range, args_num)
+      finger_angle_end = finger_angle_start - Config::FINGERS_RANGE
+      finger_angle_step = - calc_fingers_range(Config::FINGERS_RANGE, args_num)
     end
 
     args_num.times do |i|

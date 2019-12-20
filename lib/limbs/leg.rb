@@ -10,7 +10,8 @@ class Leg < Limb
     conditions = @params[:conditions]
     args_num = @params[:args]
 
-    length <= Config::METHOD_LENGTH_OK_MAX ? leg_length = Config::LEG_LENGTH : leg_length = Config::LEG_LENGTH_LONG
+    leg_length = limb_length(length, Config::METHOD_LENGTH_OK_MAX,
+                             Config::LEG_LENGTH, Config::LEG_LENGTH_LONG)
 
     if conditions.positive?
       draw_conditions(conditions, leg_length, @x0, @y0)
@@ -31,7 +32,8 @@ class Leg < Limb
       @draw_data << draw_line(x0, y0, x0, y0 + line_length)
 
       @draw_data << { ellipse: {
-        cx: x0, cy: (y1 + Config::ELLIPSE_LENGTH / 2).round , rx: (Config::ELLIPSE_LENGTH / 4).round, ry: (Config::ELLIPSE_LENGTH / 2).round
+        cx: x0, cy: (y1 + Config::ELLIPSE_LENGTH / 2).round ,
+        rx: (Config::ELLIPSE_LENGTH / 4).round, ry: (Config::ELLIPSE_LENGTH / 2).round
         }} if i < lines_num - 1
 
       y0 = y0 + line_length + Config::ELLIPSE_LENGTH / 4

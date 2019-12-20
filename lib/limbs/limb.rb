@@ -18,4 +18,8 @@ class Limb
   private
 
   def draw; end
+
+  def limb_length(length, limit, length_default, length_long)
+    length <= limit ? length_default : length_long
+  end
 end

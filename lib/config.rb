@@ -3,7 +3,7 @@ module Config
 
   METHOD_LENGTH_OK_MAX = 5
 
-  # dude parameters
+  # dude's parameters
   BODY_LENGTH = 140
   BODY_CENTER = Math::PI * (3 / 2.0)
   # defines how slim is a body
@@ -16,6 +16,7 @@ module Config
 
   FINGER_LENGTH = 10
   FINGER_ANGLE_START = Math::PI * (3 / 4.0)
+  FINGERS_RANGE = Math::PI / 2.0
 
   LEG_LENGTH = 40
   LEG_LENGTH_LONG = 70
