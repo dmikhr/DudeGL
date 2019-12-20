@@ -1,6 +1,9 @@
 require_relative 'limb'
 
 class Leg < Limb
+
+  private
+
   def draw
     caption = @params[:name]
     length = @params[:length]

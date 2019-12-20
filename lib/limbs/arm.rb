@@ -8,6 +8,8 @@ class Arm < Limb
     super(params, x0, y0)
   end
 
+  private
+
   def draw
     caption = @params[:name]
     length = @params[:length]
@@ -33,7 +35,6 @@ class Arm < Limb
     line_length = ((arm_length.abs - conditions * Config::ELLIPSE_LENGTH) / lines_num).round
     body_side == :left ? orientation = -1 : orientation = 1
 
-    x0 = x0
     x1 = x0 + line_length * orientation
 
     lines_num.times do |i|

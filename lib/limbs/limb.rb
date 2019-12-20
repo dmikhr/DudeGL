@@ -15,5 +15,7 @@ class Limb
     draw
   end
 
+  private
+
   def draw; end
 end
