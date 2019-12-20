@@ -1,6 +1,6 @@
-require_relative 'lib/dude.rb'
+require_relative 'lib/dudes.rb'
 
-params = [{ name: "ThingCollection",
+params_list = [{ name: "ThingCollection",
   :methods=>
    [{ name: :initialize, args: 2, length: 2, conditions: 0 },
     { name: :all_types, args: 0, length: 6, conditions: 2 },
@@ -15,10 +15,16 @@ params = [{ name: "ThingCollection",
        [{ name: :initialize, args: 1, length: 1, conditions: 0 },
         { name: :show, args: 0, length: 7, conditions: 2 },
         { name: :render, args: 2, length: 3, conditions: 0 },
-        { name: :find, args: 0, length: 9, conditions: 1 }] }
+        { name: :find, args: 0, length: 9, conditions: 1 }] },
+
+      { name: "SomeClass",
+        :methods=>
+          [{ name: :initialize, args: 3, length: 4, conditions: 0 },
+          { name: :scan, args: 0, length: 5, conditions: 1 },
+          { name: :compute, args: 4, length: 4, conditions: 1 }] }
   ]
 
 
-dude = Dude.new params.first
-dude.render
-dude.save 'one_dude'
+dudes = Dudes.new params_list
+dudes.render
+dudes.save 'dudes'

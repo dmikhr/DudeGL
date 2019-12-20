@@ -16,7 +16,6 @@ class Render
 
   def hash_to_svg(hash)
     operator, params = hash.first
-
     send("svg_#{operator.to_s}".to_sym, params) if defined? operator
   end
 

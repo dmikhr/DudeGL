@@ -42,7 +42,7 @@ class Arm < Limb
       @draw_data << draw_line(@x0, @y0, @x0 + arm_length, @y0)
     end
 
-    @draw_data << draw_caption(caption, 0.8 * (@x0 + arm_length).round, (0.95 * @y0).round)
+    @draw_data << draw_caption(caption, (@x0 + arm_length - 20).round, (@y0 - 10).round)
     draw_fingers(args_num)
   end
 
@@ -104,7 +104,7 @@ class Leg < Limb
       @draw_data << draw_line(@x0, @y0, @x0, @y0 + leg_length)
     end
 
-    @draw_data << draw_caption(caption, 1.05 * @x0.round, (1.02 * @y0).round, 9, :tb)
+    @draw_data << draw_caption(caption, (@x0 + 10).round, (@y0 + 10).round, 9, :tb)
   end
 
   def draw_conditions(conditions, leg_length, x0, y0)
