@@ -8,8 +8,7 @@ class Limb
   def initialize(params, x0, y0)
     @params = params
     @x0 = x0
-    @y0 = y0
-    @end_y = y0
+    @end_y = @y0 = y0
     @draw_data = []
 
     draw
