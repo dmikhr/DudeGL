@@ -76,17 +76,17 @@ class Body
     }
 
     @draw_data << draw_line(@body_right_x, @body_right_top_y,
-              @body_right_x, @body_right_top_y + Config::BODY_LENGTH)
+                            @body_right_x, @body_right_top_y + Config::BODY_LENGTH)
     # left part of a body
     @draw_data << draw_line(@body_left_x, @body_left_top_y,
-              @body_left_x, @body_left_top_y + Config::BODY_LENGTH)
+                            @body_left_x, @body_left_top_y + Config::BODY_LENGTH)
     # bottom
     @draw_data << draw_line(@body_right_x, @body_right_top_y + Config::BODY_LENGTH,
-              @body_left_x, @body_left_top_y + Config::BODY_LENGTH)
+                            @body_left_x, @body_left_top_y + Config::BODY_LENGTH)
 
     @draw_data << draw_caption(@name, head_center_x - Config::HEAD_RADIUS,
-                              head_center_y - 1.1 * Config::HEAD_RADIUS,
-                              font_size: 10)
+                               head_center_y - 1.1 * Config::HEAD_RADIUS,
+                               font_size: 10)
   end
 end
 
