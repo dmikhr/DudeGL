@@ -18,6 +18,7 @@ class DrawLegs < DrawLimbs
   end
 
   def hx(i)
-    (1.05 * @body.body_left_x + i * @legs_step).round
+    body_margin = (@body.body_right_x - @body.body_left_x) * 0.1
+    (@body.body_left_x + i * @legs_step + body_margin).round
   end
 end
