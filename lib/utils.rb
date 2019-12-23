@@ -1,5 +1,3 @@
-require_relative 'config'
-
 module Utils
   def circle_rotate(center_x, center_y, r, rotation)
     x_rotated = center_x + r * Math.cos(rotation)
