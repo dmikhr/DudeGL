@@ -1,7 +1,7 @@
 require_relative '../utils'
 require_relative '../config'
 
-class DrawBody
+class Body
   include Utils
 
   attr_reader :body_right_x, :body_right_top_y,

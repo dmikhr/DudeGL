@@ -1,7 +1,7 @@
 require_relative '../config'
 
 # arrange several dudes on canvas
-class LocateDudes
+class DudesLocation
   attr_reader :offsets, :canvas_size_x, :canvas_size_y
 
   def initialize(params_list)

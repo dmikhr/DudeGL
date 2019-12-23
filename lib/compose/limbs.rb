@@ -1,6 +1,6 @@
 require_relative '../config'
 
-class DrawLimbs
+class Limbs
   attr_reader :limbs
 
   def initialize(params, body)

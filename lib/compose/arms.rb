@@ -1,6 +1,7 @@
 require_relative '../config'
+require_relative 'limbs'
 
-class DrawArms < DrawLimbs
+class Arms < Limbs
 
   private
 
