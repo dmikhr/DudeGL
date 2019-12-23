@@ -107,7 +107,17 @@ class DrawLimbs
 
   def draw; end
 
-  def draw_parameters; end
+  def draw_parameters
+    @params_methods = @params[:methods].select { |param| param[:args].public_send(select_operator, 0) }
+    @limbs_num = @params_methods.size
+    return true if @limbs_num == 0
+  end
+
+  # dynamically select operator depending on a child class name
+  def select_operator
+    return '>' if self.class.name.downcase.include?('arm')
+    return '==' if self.class.name.downcase.include?('leg')
+  end
 end
 
 class DrawArms < DrawLimbs
@@ -128,9 +138,7 @@ class DrawArms < DrawLimbs
   end
 
   def draw_parameters
-    @params_methods = @params[:methods].select { |param| param[:args] > 0 }
-    @limbs_num = @params_methods.size
-    return if @limbs_num == 0
+    return if super
 
     remainder = @limbs_num % 2
 
@@ -164,10 +172,7 @@ class DrawLegs < DrawLimbs
   end
 
   def draw_parameters
-    @params_methods = @params[:methods].select { |param| param[:args] == 0 }
-    @limbs_num = @params_methods.size
-    return if @limbs_num == 0
-
+    return if super
     @legs_step = (((@body.body_right_x - @body.body_left_x) * 0.9) / @limbs_num).round
   end
 
