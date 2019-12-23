@@ -36,7 +36,7 @@ class Leg < Limb
         rx: (Config::ELLIPSE_LENGTH / 4).round, ry: (Config::ELLIPSE_LENGTH / 2).round
         }} if i < lines_num - 1
 
-      y0 = y0 + line_length + Config::ELLIPSE_LENGTH / 4
+      y0 = y0 + line_length + Config::ELLIPSE_LENGTH
       y1 = y0 + line_length
     end
   end
