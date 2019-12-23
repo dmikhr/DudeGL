@@ -20,18 +20,40 @@ class Render
   end
 
   def svg_line(params)
-    %Q[<line x1="#{params[:x1]}" y1="#{params[:y1]}" x2="#{params[:x2]}" y2="#{params[:y2]}" style="stroke:black; stroke-width:1"/>]
+    <<~LINE.gsub(/\s+/, " ").strip
+      <line x1="#{params[:x1]}" y1="#{params[:y1]}"
+      x2="#{params[:x2]}"
+      y2="#{params[:y2]}"
+      style="stroke:black; stroke-width:1"/>
+    LINE
   end
 
   def svg_circle(params)
-    %Q[<circle cx="#{params[:cx]}" cy="#{params[:cy]}" r="#{params[:r]}" fill="white" style="stroke:black; stroke-width:1"/>]
+    <<~CIRCLE.gsub(/\s+/, " ").strip
+      <circle cx="#{params[:cx]}"
+      cy="#{params[:cy]}"
+      r="#{params[:r]}"
+      fill="white" style="stroke:black; stroke-width:1"/>
+    CIRCLE
   end
 
   def svg_ellipse(params)
-    %Q[<ellipse cx="#{params[:cx]}" cy="#{params[:cy]}" rx="#{params[:rx]}" ry="#{params[:ry]}" style="stroke:black; stroke-width:1" fill="white"/>]
+    <<~ELLIPSE.gsub(/\s+/, " ").strip
+      <ellipse cx="#{params[:cx]}"
+      cy="#{params[:cy]}"
+      rx="#{params[:rx]}"
+      ry="#{params[:ry]}"
+      style="stroke:black; stroke-width:1" fill="white"/>
+    ELLIPSE
   end
 
   def svg_text(params)
-    %Q[<text x="#{params[:x]}" y="#{params[:y]}" font-family="arial" font-size="#{params[:font_size]}" fill="black" style="writing-mode: #{params[:orientation].to_s}">#{params[:caption]}</text>]
+    <<~TEXT.gsub(/\s+/, " ").strip
+      <text x="#{params[:x]}"
+      y="#{params[:y]}"
+      font-family="arial" font-size="#{params[:font_size]}"
+      fill="black" style="writing-mode:
+      #{params[:orientation].to_s}">#{params[:caption]}</text>
+    TEXT
   end
 end
