@@ -6,7 +6,7 @@ class Dudes
   def initialize(params_list)
     @params_list = params_list
     @dudes = []
-    @locations = DudesLocation.new(params_list)
+    @locations = DudesLocation.new(@params_list)
 
     build_dudes
   end

@@ -22,33 +22,35 @@ class Arm < Limb
     @end_x = @x0 + arm_length
 
     if conditions.positive?
-      draw_conditions(conditions, arm_length, @x0, @y0, @body_side)
+      draw_conditions(conditions, arm_length)
     else
       @draw_data << draw_line(@x0, @y0, @x0 + arm_length, @y0)
     end
 
-    @draw_data << draw_caption(caption, (@x0 + arm_length - 20).round, (@y0 - 10).round)
+    @draw_data << draw_caption(caption, (@end_x - 20).round, (@y0 - 10).round)
     draw_fingers(args_num)
   end
 
-  def draw_conditions(conditions, arm_length, x0, y0, body_side)
-    lines_num = conditions + 1
-    line_length = ((arm_length.abs - conditions * Config::ELLIPSE_LENGTH) / lines_num).round
-    body_side == :left ? orientation = -1 : orientation = 1
+  def draw_conditions(conditions, arm_length)
+    @lines_num = conditions + 1
+    @line_length = ((arm_length.abs - conditions * Config::ELLIPSE_LENGTH) / @lines_num).round
+    @body_side == :left ? @orientation = -1 : @orientation = 1
 
-    x1 = x0 + line_length * orientation
+    @x1 = @x0 + @line_length * @orientation
 
-    lines_num.times do |i|
-      @draw_data << draw_line(x0, y0, x1, y0)
+    @lines_num.times { |i| draw_condition(i) }
+  end
 
-      @draw_data << { ellipse: {
-                      cx: (x1 + Config::ELLIPSE_LENGTH * orientation / 2).round,
-                      cy: y0, rx: (Config::ELLIPSE_LENGTH / 2).round,
-                      ry: (Config::ELLIPSE_LENGTH / 4).round }} if i < lines_num - 1
+  def draw_condition(i)
+    @draw_data << draw_line(@x0, @y0, @x1, @y0)
 
-      x0 = x0 + (line_length + Config::ELLIPSE_LENGTH) * orientation
-      x1 = x0 + line_length * orientation
-    end
+    @draw_data << { ellipse: {
+                    cx: (@x1 + Config::ELLIPSE_LENGTH * @orientation / 2).round,
+                    cy: @y0, rx: (Config::ELLIPSE_LENGTH / 2).round,
+                    ry: (Config::ELLIPSE_LENGTH / 4).round }} if i < @lines_num - 1
+
+    @x0 += (@line_length + Config::ELLIPSE_LENGTH) * @orientation
+    @x1 = @x0 + @line_length * @orientation
   end
 
   def draw_fingers(args_num)
