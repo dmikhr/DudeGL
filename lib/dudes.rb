@@ -28,7 +28,7 @@ class Dudes
   end
 
   def build_dude(params, index)
-    body = Body.new(params[:name], offsets = @locations.offsets[index])
+    body = DrawBody.new(params[:name], offsets = @locations.offsets[index])
 
     arms = DrawArms.new(params, body).limbs
     arms_draw_params = arms.map { |arm| arm.draw_data }
