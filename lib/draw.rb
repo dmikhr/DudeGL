@@ -97,27 +97,20 @@ class DrawLimbs
   def initialize(params, body)
     @params = params
     @body = body
+    @limbs = []
 
-    draw
+    draw_parameters
+    draw if @limbs_num.positive?
   end
 
   private
 
-  def draw
-    draw_parameters
-  end
+  def draw; end
 
   def draw_parameters; end
 end
 
 class DrawArms < DrawLimbs
-
-  attr_reader :arms
-
-  def initialize(params, body)
-    @arms = []
-    super(params, body)
-  end
 
   private
 
@@ -126,22 +119,23 @@ class DrawArms < DrawLimbs
     divide_arms
 
     @left_arms_num.times do |i|
-      @arms << Arm.new(@left_arms[i], @body.body_left_x, hy(i), :left)
+      @limbs << Arm.new(@left_arms[i], @body.body_left_x, hy(i), :left)
     end
 
     @right_arms_num.times do |i|
-       @arms << Arm.new(@right_arms[i], @body.body_right_x, hy(i), :right)
+       @limbs << Arm.new(@right_arms[i], @body.body_right_x, hy(i), :right)
     end
   end
 
   def draw_parameters
     @params_methods = @params[:methods].select { |param| param[:args] > 0 }
-    @arms_num = @params_methods.size
+    @limbs_num = @params_methods.size
+    return if @limbs_num == 0
 
-    remainder = @arms_num % 2
+    remainder = @limbs_num % 2
 
-    @left_arms_num = (@arms_num - remainder) / 2 + remainder
-    @right_arms_num = @arms_num - @left_arms_num
+    @left_arms_num = (@limbs_num - remainder) / 2 + remainder
+    @right_arms_num = @limbs_num - @left_arms_num
 
     # BODY_LENGTH * 0.9 - to avoid drawing hands on a body edges
     @arms_step = ((Config::BODY_LENGTH * 0.9) / @left_arms_num).round
@@ -149,7 +143,7 @@ class DrawArms < DrawLimbs
 
   def divide_arms
     @left_arms = @params_methods[0, @left_arms_num]
-    @right_arms = @params_methods[@left_arms_num, @arms_num]
+    @right_arms = @params_methods[@left_arms_num, @limbs_num]
   end
 
   def hy(i)
@@ -158,28 +152,23 @@ class DrawArms < DrawLimbs
 end
 
 class DrawLegs < DrawLimbs
-  attr_reader :legs
-
-  def initialize(params, body)
-    @legs = []
-    super(params, body)
-  end
 
   private
 
   def draw
     super
 
-    @legs_num.times do |i|
-      @legs << Leg.new(@params_methods[i], hx(i), @body.body_right_top_y + Config::BODY_LENGTH)
+    @limbs_num.times do |i|
+      @limbs << Leg.new(@params_methods[i], hx(i), @body.body_right_top_y + Config::BODY_LENGTH)
     end
   end
 
   def draw_parameters
     @params_methods = @params[:methods].select { |param| param[:args] == 0 }
-    @legs_num = @params_methods.size
+    @limbs_num = @params_methods.size
+    return if @limbs_num == 0
 
-    @legs_step = (((@body.body_right_x - @body.body_left_x) * 0.9) / @legs_num).round
+    @legs_step = (((@body.body_right_x - @body.body_left_x) * 0.9) / @limbs_num).round
   end
 
   def hx(i)

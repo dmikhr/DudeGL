@@ -17,11 +17,25 @@ params_list = [{ name: "ThingCollection",
         { name: :render, args: 2, length: 3, conditions: 0 },
         { name: :find, args: 0, length: 9, conditions: 1 }] },
 
-      { name: "SomeClass",
+      { name: "SomeEntity",
         :methods=>
           [{ name: :initialize, args: 3, length: 4, conditions: 0 },
           { name: :scan, args: 0, length: 5, conditions: 1 },
-          { name: :compute, args: 4, length: 4, conditions: 1 }] }
+          { name: :compute, args: 4, length: 4, conditions: 1 }] },
+
+      { name: "Legs",
+        :methods=>
+          [{ name: :initialize, args: 0, length: 3, conditions: 0 },
+          { name: :clean, args: 0, length: 12, conditions: 2 }] },
+
+        { name: "Arms",
+          :methods=>
+            [{ name: :initialize, args: 2, length: 5, conditions: 0 },
+            { name: :sort, args: 1, length: 12, conditions: 1 },
+            { name: :report, args: 1, length: 4, conditions: 1 }] },
+
+        { name: "EmptyThing",
+          :methods=> [] }
   ]
 
 

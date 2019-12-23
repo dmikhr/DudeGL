@@ -30,10 +30,10 @@ class Dudes
   def build_dude(params, index)
     body = Body.new(params[:name], offsets = @locations.offsets[index])
 
-    arms = DrawArms.new(params, body).arms
+    arms = DrawArms.new(params, body).limbs
     arms_draw_params = arms.map { |arm| arm.draw_data }
 
-    legs = DrawLegs.new(params, body).legs
+    legs = DrawLegs.new(params, body).limbs
     legs_draw_params = legs.map { |leg| leg.draw_data }
 
     (body.draw_data + arms_draw_params + legs_draw_params).flatten
