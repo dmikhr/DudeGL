@@ -10,16 +10,13 @@ module Config
   SLIM_FACTOR = Math::PI * (2 / 8.0)
   HEAD_RADIUS = 40
 
-  ARM_LENGTH = 40
-  ARM_LENGTH_LONG = 70
+  LIMB_LENGTH = 40
+  LIMB_LENGTH_LONG = 70
   ELLIPSE_LENGTH = 10
 
   FINGER_LENGTH = 10
   FINGER_ANGLE_START = Math::PI * (3 / 4.0)
   FINGERS_RANGE = Math::PI / 2.0
-
-  LEG_LENGTH = 40
-  LEG_LENGTH_LONG = 70
 
   # size of an square area in pixels where one dude is depicted
   DUDE_FRAME_SIZE = 400

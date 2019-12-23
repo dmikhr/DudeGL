@@ -16,9 +16,18 @@ class Limb
 
   private
 
-  def draw; end
-
-  def limb_length(length, limit, length_default, length_long)
-    length <= limit ? length_default : length_long
+  def draw
+    @limb_length = compute_limb_length
   end
+
+  def compute_limb_length
+    @params[:length] <= Config::METHOD_LENGTH_OK_MAX ? Config::LIMB_LENGTH * orientation : Config::LIMB_LENGTH_LONG * orientation
+  end
+
+  def orientation
+    return 1 if @body_side.nil?
+    @body_side == :left ? -1 : 1
+  end
+
+  def draw_conditions; end
 end
