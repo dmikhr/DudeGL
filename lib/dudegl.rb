@@ -2,7 +2,7 @@ require 'byebug'
 # require all filder from current dir and subdirectories
 Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
-class Dudes
+class DudeGl
   def initialize(params_list)
     @params_list = params_list
     @dudes = []
