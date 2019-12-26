@@ -3,10 +3,10 @@ require 'byebug'
 Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
 class DudeGl
-  def initialize(params_list)
+  def initialize(params_list, dudes_per_row_max = nil)
     @params_list = params_list
     @dudes = []
-    @locations = DudesLocation.new(@params_list)
+    @locations = DudesLocation.new(@params_list, dudes_per_row_max)
 
     build_dudes
   end

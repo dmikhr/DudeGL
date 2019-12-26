@@ -23,7 +23,6 @@ module Config
 
   # for LocateDudes class
   DUDES_PER_ROW_MAX = 6
-  DUDES_ROWS_MAX = 3
 
   # coordinates offset for drawing multiple dudes on a canvas
   OFFSET_X = 0.7 * DUDE_FRAME_SIZE

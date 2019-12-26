@@ -39,6 +39,6 @@ params_list = [{ name: "ThingCollection",
   ]
 
 
-dudes = DudeGl.new params_list
+dudes = DudeGl.new params_list, 2
 dudes.render
 dudes.save 'dudes'
