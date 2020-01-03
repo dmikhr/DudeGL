@@ -30,11 +30,13 @@ class DudeGl
   def build_dude(params, index)
     body = Body.new(params[:name], offsets = @locations.offsets[index])
 
+    # draw all methods as arms, keep legs for something else...
     arms = Arms.new(params, body).limbs
     arms_draw_params = arms.map { |arm| arm.draw_data }
 
-    legs = Legs.new(params, body).limbs
-    legs_draw_params = legs.map { |leg| leg.draw_data }
+    # legs = Legs.new(params, body).limbs
+    # legs_draw_params = legs.map { |leg| leg.draw_data }
+    legs_draw_params = []
 
     (body.draw_data + arms_draw_params + legs_draw_params).flatten
   end
