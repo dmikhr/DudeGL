@@ -1,12 +1,6 @@
 require_relative 'limb'
 
 class Arm < Limb
-  attr_reader :body_side
-
-  def initialize(params, x0, y0, body_side)
-    @body_side = body_side
-    super(params, x0, y0)
-  end
 
   private
 
@@ -46,7 +40,7 @@ class Arm < Limb
   end
 
   def draw_fingers(args_num)
-    if body_side == :left
+    if @opts[:body_side] == :left
       finger_angle_start = Config::FINGER_ANGLE_START
       finger_angle_end = finger_angle_start + Config::FINGERS_RANGE
       finger_angle_step = calc_fingers_range(Config::FINGERS_RANGE, args_num)

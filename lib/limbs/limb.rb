@@ -5,11 +5,12 @@ class Limb
 
   attr_reader :end_x, :end_y, :draw_data
 
-  def initialize(params, x0, y0)
+  def initialize(params, x0, y0, opts = {})
     @params = params
     @x0 = x0
     @end_y = @y0 = y0
     @draw_data = []
+    @opts = opts
 
     draw
   end
@@ -25,8 +26,8 @@ class Limb
   end
 
   def orientation
-    return 1 if @body_side.nil?
-    @body_side == :left ? -1 : 1
+    return 1 if @opts[:body_side].nil?
+    @opts[:body_side] == :left ? -1 : 1
   end
 
   def draw_conditions; end

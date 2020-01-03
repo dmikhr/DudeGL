@@ -10,11 +10,11 @@ class Arms < Limbs
     divide_arms
 
     @left_arms_num.times do |i|
-      @limbs << Arm.new(@left_arms[i], @body.body_left_x, hy(i), :left)
+      @limbs << Arm.new(@left_arms[i], @body.body_left_x, hy(i), body_side: :left)
     end
 
     @right_arms_num.times do |i|
-       @limbs << Arm.new(@right_arms[i], @body.body_right_x, hy(i), :right)
+       @limbs << Arm.new(@right_arms[i], @body.body_right_x, hy(i), body_side: :right)
     end
   end
 
