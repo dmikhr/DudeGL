@@ -9,9 +9,9 @@
 <line x1="131.7157287525381" y1="156" x2="124.64466094067262" y2="148.92893218813452" style="stroke:black; stroke-width:1"/>
 <line x1="131.7157287525381" y1="156" x2="124.64466094067262" y2="163.07106781186548" style="stroke:black; stroke-width:1"/>
 <line x1="171.7157287525381" y1="188" x2="155.7157287525381" y2="188" style="stroke:black; stroke-width:1"/>
-<ellipse cx="151" cy="188" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="150.7157287525381" cy="188" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="145.7157287525381" y1="188" x2="129.7157287525381" y2="188" style="stroke:black; stroke-width:1"/>
-<ellipse cx="125" cy="188" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="124.7157287525381" cy="188" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="119.7157287525381" y1="188" x2="103.7157287525381" y2="188" style="stroke:black; stroke-width:1"/>
 <text x="82" y="178" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">all_types</text>
 <line x1="171.7157287525381" y1="220" x2="101.7157287525381" y2="220" style="stroke:black; stroke-width:1"/>
@@ -34,17 +34,17 @@
 <line x1="298.2842712474619" y1="156" x2="307.94352951035256" y2="158.5881904510252" style="stroke:black; stroke-width:1"/>
 <line x1="298.2842712474619" y1="156" x2="305.3553390593274" y2="163.07106781186548" style="stroke:black; stroke-width:1"/>
 <line x1="228.2842712474619" y1="188" x2="258.2842712474619" y2="188" style="stroke:black; stroke-width:1"/>
-<ellipse cx="263" cy="188" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="263.2842712474619" cy="188" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="268.2842712474619" y1="188" x2="298.2842712474619" y2="188" style="stroke:black; stroke-width:1"/>
 <text x="278" y="178" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">message</text>
 <line x1="228.2842712474619" y1="220" x2="234.2842712474619" y2="220" style="stroke:black; stroke-width:1"/>
-<ellipse cx="239" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="239.2842712474619" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="244.2842712474619" y1="220" x2="250.2842712474619" y2="220" style="stroke:black; stroke-width:1"/>
-<ellipse cx="255" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="255.2842712474619" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="260.2842712474619" y1="220" x2="266.2842712474619" y2="220" style="stroke:black; stroke-width:1"/>
-<ellipse cx="271" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="271.2842712474619" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="276.2842712474619" y1="220" x2="282.2842712474619" y2="220" style="stroke:black; stroke-width:1"/>
-<ellipse cx="287" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="287.2842712474619" cy="220" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="292.2842712474619" y1="220" x2="298.2842712474619" y2="220" style="stroke:black; stroke-width:1"/>
 <text x="278" y="210" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">signal</text>
 <line x1="298.2842712474619" y1="220" x2="305.3553390593274" y2="212.92893218813452" style="stroke:black; stroke-width:1"/>
@@ -61,9 +61,9 @@
 <text x="392" y="146" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">initialize</text>
 <line x1="411.7157287525381" y1="156" x2="404.6446609406726" y2="148.92893218813452" style="stroke:black; stroke-width:1"/>
 <line x1="451.7157287525381" y1="219" x2="435.7157287525381" y2="219" style="stroke:black; stroke-width:1"/>
-<ellipse cx="431" cy="219" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="430.7157287525381" cy="219" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="425.7157287525381" y1="219" x2="409.7157287525381" y2="219" style="stroke:black; stroke-width:1"/>
-<ellipse cx="405" cy="219" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="404.7157287525381" cy="219" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="399.7157287525381" y1="219" x2="383.7157287525381" y2="219" style="stroke:black; stroke-width:1"/>
 <text x="362" y="209" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">show</text>
 <line x1="508.2842712474619" y1="156" x2="548.2842712474619" y2="156" style="stroke:black; stroke-width:1"/>
@@ -71,7 +71,7 @@
 <line x1="548.2842712474619" y1="156" x2="555.3553390593274" y2="148.92893218813452" style="stroke:black; stroke-width:1"/>
 <line x1="548.2842712474619" y1="156" x2="555.3553390593274" y2="163.07106781186548" style="stroke:black; stroke-width:1"/>
 <line x1="508.2842712474619" y1="219" x2="538.2842712474619" y2="219" style="stroke:black; stroke-width:1"/>
-<ellipse cx="543" cy="219" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="543.2842712474619" cy="219" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="548.2842712474619" y1="219" x2="578.2842712474619" y2="219" style="stroke:black; stroke-width:1"/>
 <text x="558" y="209" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">find</text>
 <circle cx="200.0" cy="440.0" r="40" fill="white" style="stroke:black; stroke-width:1"/>
@@ -85,11 +85,11 @@
 <line x1="131.7157287525381" y1="492" x2="121.7157287525381" y2="492.0" style="stroke:black; stroke-width:1"/>
 <line x1="131.7157287525381" y1="492" x2="124.64466094067262" y2="499.0710678118655" style="stroke:black; stroke-width:1"/>
 <line x1="171.7157287525381" y1="555" x2="156.7157287525381" y2="555" style="stroke:black; stroke-width:1"/>
-<ellipse cx="152" cy="555" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="151.7157287525381" cy="555" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="146.7157287525381" y1="555" x2="131.7157287525381" y2="555" style="stroke:black; stroke-width:1"/>
 <text x="112" y="545" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">scan</text>
 <line x1="228.2842712474619" y1="492" x2="243.2842712474619" y2="492" style="stroke:black; stroke-width:1"/>
-<ellipse cx="248" cy="492" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="248.2842712474619" cy="492" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="253.2842712474619" y1="492" x2="268.2842712474619" y2="492" style="stroke:black; stroke-width:1"/>
 <text x="248" y="482" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">compute</text>
 <line x1="268.2842712474619" y1="492" x2="275.3553390593274" y2="484.9289321881345" style="stroke:black; stroke-width:1"/>
@@ -104,9 +104,9 @@
 <line x1="451.7157287525381" y1="492" x2="411.7157287525381" y2="492" style="stroke:black; stroke-width:1"/>
 <text x="392" y="482" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">initialize</text>
 <line x1="508.2842712474619" y1="492" x2="524.2842712474619" y2="492" style="stroke:black; stroke-width:1"/>
-<ellipse cx="529" cy="492" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="529.2842712474619" cy="492" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="534.2842712474619" y1="492" x2="550.2842712474619" y2="492" style="stroke:black; stroke-width:1"/>
-<ellipse cx="555" cy="492" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="555.2842712474619" cy="492" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="560.2842712474619" y1="492" x2="576.2842712474619" y2="492" style="stroke:black; stroke-width:1"/>
 <text x="558" y="482" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">clean</text>
 <circle cx="200.0" cy="760.0" r="40" fill="white" style="stroke:black; stroke-width:1"/>
@@ -119,12 +119,12 @@
 <line x1="131.7157287525381" y1="828" x2="124.64466094067262" y2="820.9289321881345" style="stroke:black; stroke-width:1"/>
 <line x1="131.7157287525381" y1="828" x2="124.64466094067262" y2="835.0710678118654" style="stroke:black; stroke-width:1"/>
 <line x1="171.7157287525381" y1="891" x2="141.7157287525381" y2="891" style="stroke:black; stroke-width:1"/>
-<ellipse cx="137" cy="891" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="136.7157287525381" cy="891" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="131.7157287525381" y1="891" x2="101.7157287525381" y2="891" style="stroke:black; stroke-width:1"/>
 <text x="82" y="881" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">sort</text>
 <line x1="101.7157287525381" y1="891" x2="94.64466094067262" y2="883.9289321881345" style="stroke:black; stroke-width:1"/>
 <line x1="228.2842712474619" y1="828" x2="243.2842712474619" y2="828" style="stroke:black; stroke-width:1"/>
-<ellipse cx="248" cy="828" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
+<ellipse cx="248.2842712474619" cy="828" rx="5" ry="2" style="stroke:black; stroke-width:1" fill="white"/>
 <line x1="253.2842712474619" y1="828" x2="268.2842712474619" y2="828" style="stroke:black; stroke-width:1"/>
 <text x="248" y="818" font-family="arial" font-size="9" fill="black" style="writing-mode: lr">report</text>
 <line x1="268.2842712474619" y1="828" x2="275.3553390593274" y2="820.9289321881346" style="stroke:black; stroke-width:1"/>

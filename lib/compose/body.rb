@@ -27,13 +27,7 @@ class Body
                                                      Config::HEAD_RADIUS,
                                                      Config::BODY_CENTER - Config::SLIM_FACTOR)
 
-    @draw_data << {
-      circle: {
-      cx: head_center_x,
-      cy: head_center_y,
-      r: Config::HEAD_RADIUS
-      }
-    }
+    @draw_data << draw_circle(head_center_x, head_center_y, Config::HEAD_RADIUS)
 
     @draw_data << draw_line(@body_right_x, @body_right_top_y,
                             @body_right_x, @body_right_top_y + Config::BODY_LENGTH)

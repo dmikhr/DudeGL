@@ -30,10 +30,9 @@ class Arm < Limb
   def draw_condition(i)
     @draw_data << draw_line(@x0, @y0, @x1, @y0)
 
-    @draw_data << { ellipse: {
-                    cx: (@x1 + Config::ELLIPSE_LENGTH * orientation / 2).round,
-                    cy: @y0, rx: (Config::ELLIPSE_LENGTH / 2).round,
-                    ry: (Config::ELLIPSE_LENGTH / 4).round }} if i < @lines_num - 1
+    @draw_data << draw_ellipse(cx = (@x1 + Config::ELLIPSE_LENGTH * orientation / 2), cy = @y0,
+                              rx = (Config::ELLIPSE_LENGTH / 2),
+                              ry = (Config::ELLIPSE_LENGTH / 4)) if i < @lines_num - 1
 
     @x0 += (@line_length + Config::ELLIPSE_LENGTH) * orientation
     @x1 = @x0 + @line_length * orientation
