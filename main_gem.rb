@@ -1,4 +1,5 @@
-require_relative 'lib/dudegl.rb'
+# require_relative 'lib/dudes.rb'
+require 'dudegl'
 
 params_list = [{ name: "ThingCollection",
   :methods=>
@@ -39,6 +40,6 @@ params_list = [{ name: "ThingCollection",
   ]
 
 
-dudes = DudeGl.new params_list, 2
+dudes = DudeGl.new params_list
 dudes.render
 dudes.save 'dudes'

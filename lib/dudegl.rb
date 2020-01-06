@@ -1,21 +1,41 @@
-require 'victor'
-require_relative 'dude'
-require_relative 'arm'
+require 'byebug'
+# require all filder from current dir and subdirectories
+Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
 class DudeGl
-  def create_canvas(width = 400, height = 400)
-    @canvas = Victor::SVG.new width: width, height: height, style: { background: 'white' }
+  def initialize(params_list, dudes_per_row_max = nil)
+    @params_list = params_list
+    @dudes = []
+    @locations = DudesLocation.new(@params_list, dudes_per_row_max)
+
+    build_dudes
   end
 
-  def create_dude
-    Dude.new(@canvas)
+  def render
+    @svg = Render.new(@dudes.flatten,
+                      width = @locations.canvas_size_x,
+                      height = @locations.canvas_size_y)
   end
 
-  def add_arm(params, x0, y0, body_side)
-    Arm.new(@canvas, params, x0, y0, body_side)
+  def save(file_name)
+    File.open("images/#{file_name}.svg", 'w') { |file| file.write(@svg.contents) }
   end
 
-  def save_to_svg(file_name)
-    @canvas.save "#{Config::IMAGE_DIR}/#{file_name}"
+  private
+
+  def build_dudes
+    @params_list.each_with_index { |params, index| @dudes << build_dude(params, index) }
+  end
+
+  def build_dude(params, index)
+    body = Body.new(params[:name], offsets = @locations.offsets[index])
+
+    # draw all methods as arms, keep legs for something else...
+    arms = Arms.new(params, body).limbs
+    arms_draw_params = arms.map { |arm| arm.draw_data }
+
+    legs_draw_params = []
+
+    (body.draw_data + arms_draw_params + legs_draw_params).flatten
   end
 end
