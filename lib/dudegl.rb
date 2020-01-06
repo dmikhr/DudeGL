@@ -34,8 +34,6 @@ class DudeGl
     arms = Arms.new(params, body).limbs
     arms_draw_params = arms.map { |arm| arm.draw_data }
 
-    # legs = Legs.new(params, body).limbs
-    # legs_draw_params = legs.map { |leg| leg.draw_data }
     legs_draw_params = []
 
     (body.draw_data + arms_draw_params + legs_draw_params).flatten

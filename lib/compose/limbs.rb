@@ -17,8 +17,6 @@ class Limbs
   def draw; end
 
   def draw_parameters
-    # @params_methods = @params[:methods].select { |param| param[:args].public_send(select_operator, 0) }
-    # @limbs_num = @params_methods.size
     @params_methods = @params[:methods]
     @limbs_num = @params_methods.size
     return true if @limbs_num == 0
