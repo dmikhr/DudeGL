@@ -11,6 +11,10 @@ class Limb
     @end_y = @y0 = y0
     @draw_data = []
     @opts = opts
+    @name, @color_limb = process_item(params[:name])
+    # if dude is new or was removed - paint everything in green/red since the whole object has been changed
+    body_color = apply_body_color(@opts[:body_color]) if @opts.key?(:body_color)
+    @color_limb = body_color unless body_color.nil?
 
     draw
   end
@@ -31,4 +35,13 @@ class Limb
   end
 
   def draw_conditions; end
+
+  def set_additional_colors(items, value)
+    return [@color_limb] * items if @color_limb == :green || @color_limb == :red
+    return value
+  end
+
+  def apply_body_color(body_color)
+    return body_color if body_color == :green || body_color == :red
+  end
 end

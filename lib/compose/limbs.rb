@@ -3,10 +3,11 @@ require_relative '../config'
 class Limbs
   attr_reader :limbs
 
-  def initialize(params, body)
+  def initialize(params, body, opts = {})
     @params = params
     @body = body
     @limbs = []
+    opts.key?(:body_color) ? @body_color = opts[:body_color] : @body_color = nil
 
     draw_parameters
     draw if @limbs_num.positive?
