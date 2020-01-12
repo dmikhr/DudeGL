@@ -3,9 +3,10 @@ require 'byebug'
 Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
 class DudeGl
-  def initialize(params_list, dudes_per_row_max = nil)
+  def initialize(params_list, opts = {})
     @params_list = params_list
     @dudes = []
+    opts.key?(:dudes_per_row_max) ? dudes_per_row_max = opts[:dudes_per_row_max] : dudes_per_row_max = nil
     @locations = DudesLocation.new(@params_list, dudes_per_row_max)
 
     build_dudes
@@ -30,8 +31,9 @@ class DudeGl
   def build_dude(params, index)
     body = Body.new(params[:name], offsets = @locations.offsets[index])
 
+    body.changed? ? body_color = body.color : body_color = nil
     # draw all methods as arms, keep legs for something else...
-    arms = Arms.new(params, body).limbs
+    arms = Arms.new(params, body, body_color: body_color).limbs
     arms_draw_params = arms.map { |arm| arm.draw_data }
 
     legs_draw_params = []

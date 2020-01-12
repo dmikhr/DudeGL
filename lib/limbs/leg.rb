@@ -30,10 +30,9 @@ class Leg < Limb
   def draw_condition(i)
     @draw_data << draw_line(@x0, @y0, @x0, @y1)
 
-    @draw_data << { ellipse: {
-      cx: @x0, cy: (@y1 + Config::ELLIPSE_LENGTH / 2).round ,
-      rx: (Config::ELLIPSE_LENGTH / 4).round, ry: (Config::ELLIPSE_LENGTH / 2).round
-      }} if i < @lines_num - 1
+    @draw_data << draw_ellipse(cx = @x0, cy = (@y1 + Config::ELLIPSE_LENGTH / 2),
+                              rx = (Config::ELLIPSE_LENGTH / 4),
+                              ry = (Config::ELLIPSE_LENGTH / 2)) if i < @lines_num - 1
 
     @y0 += @line_length + Config::ELLIPSE_LENGTH
     @y1 = @y0 + @line_length

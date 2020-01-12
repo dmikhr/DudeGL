@@ -24,7 +24,7 @@ class Render
       <line x1="#{params[:x1]}" y1="#{params[:y1]}"
       x2="#{params[:x2]}"
       y2="#{params[:y2]}"
-      style="stroke:black; stroke-width:1"/>
+      style="stroke:#{params[:color]}; stroke-width:1"/>
     LINE
   end
 
@@ -33,7 +33,7 @@ class Render
       <circle cx="#{params[:cx]}"
       cy="#{params[:cy]}"
       r="#{params[:r]}"
-      fill="white" style="stroke:black; stroke-width:1"/>
+      fill="white" style="stroke:#{params[:color].to_s}; stroke-width:1"/>
     CIRCLE
   end
 
@@ -43,7 +43,7 @@ class Render
       cy="#{params[:cy]}"
       rx="#{params[:rx]}"
       ry="#{params[:ry]}"
-      style="stroke:black; stroke-width:1" fill="white"/>
+      style="stroke:#{params[:color].to_s}; stroke-width:1" fill="white"/>
     ELLIPSE
   end
 
@@ -52,7 +52,7 @@ class Render
       <text x="#{params[:x]}"
       y="#{params[:y]}"
       font-family="arial" font-size="#{params[:font_size]}"
-      fill="black" style="writing-mode:
+      fill="#{params[:color].to_s}" style="writing-mode:
       #{params[:orientation].to_s}">#{params[:caption]}</text>
     TEXT
   end
