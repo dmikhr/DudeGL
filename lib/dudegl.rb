@@ -22,6 +22,10 @@ class DudeGl
     File.open("images/#{file_name}.svg", 'w') { |file| file.write(@svg.contents) }
   end
 
+  def save_to_string
+    @svg.contents
+  end
+
   private
 
   def build_dudes
