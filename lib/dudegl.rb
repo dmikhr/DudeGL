@@ -7,6 +7,7 @@ class DudeGl
     @params_list = params_list
     @dudes = []
     opts.key?(:dudes_per_row_max) ? dudes_per_row_max = opts[:dudes_per_row_max] : dudes_per_row_max = nil
+    opts.key?(:renamed) ? @renamed = opts[:renamed] : @renamed = nil
     @locations = DudesLocation.new(@params_list, dudes_per_row_max)
 
     build_dudes
@@ -33,7 +34,7 @@ class DudeGl
   end
 
   def build_dude(params, index)
-    body = Body.new(params[:name], offsets = @locations.offsets[index])
+    body = Body.new(params[:name], offsets = @locations.offsets[index], @renamed)
 
     body.changed? ? body_color = body.color : body_color = nil
     # draw all methods as arms, keep legs for something else...
