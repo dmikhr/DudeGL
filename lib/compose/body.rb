@@ -17,14 +17,8 @@ class Body
   end
 
   def draw_body
-    name, @color = process_item(@name)
-
-    renaming_data = renaming_check(name)
-    if renaming_data
-      name = "#{renaming_data[:old_name]} > #{renaming_data[:new_name]}"
-      # dude is the same, just renamed, so body borders are black (not necessary limbs)
-      @color = :black
-    end
+    @dude_name, @color = process_item(@name)
+    rename_dude if dude_renamed
     # head center
     head_center_x = 0.5 * Config::DUDE_FRAME_SIZE + @offset_x
     head_center_y = 0.3 * Config::DUDE_FRAME_SIZE + @offset_y
@@ -47,7 +41,7 @@ class Body
     @draw_data << draw_line(@body_right_x, @body_right_top_y + Config::BODY_LENGTH,
                             @body_left_x, @body_left_top_y + Config::BODY_LENGTH, @color)
 
-    @draw_data << draw_caption(name, head_center_x - Config::HEAD_RADIUS,
+    @draw_data << draw_caption(@dude_name, head_center_x - Config::HEAD_RADIUS,
                                head_center_y - 1.1 * Config::HEAD_RADIUS,
                                14, :lr, @color)
   end
@@ -58,8 +52,14 @@ class Body
 
   private
 
-  def renaming_check(name)
-    found = @renamed.select { |item| item[:old_name] == name || item[:new_name] == name }
-    return found.first if found.any?
+  def dude_renamed
+    found = @renamed.select { |item| item[:old_name] == @dude_name || item[:new_name] == @dude_name }
+    @dude_names = found.first if found.any?
+  end
+
+  def rename_dude
+    @dude_name = "#{@dude_names[:old_name]} > #{@dude_names[:new_name]}"
+    # dude is the same, just renamed, so body borders are black (not necessary limbs)
+    @color = :black
   end
 end
