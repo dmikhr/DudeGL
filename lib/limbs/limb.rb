@@ -12,9 +12,6 @@ class Limb
     @draw_data = []
     @opts = opts
     @name, @color_limb = process_item(params[:name])
-    # if dude is new or was removed - paint everything in green/red since the whole object has been changed
-    body_color = apply_body_color(@opts[:body_color]) if @opts.key?(:body_color)
-    @color_limb = body_color unless body_color.nil?
 
     draw
   end

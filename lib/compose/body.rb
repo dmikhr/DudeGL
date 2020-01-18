@@ -7,16 +7,24 @@ class Body
   attr_reader :body_right_x, :body_right_top_y,
               :body_left_x, :body_left_top_y, :draw_data, :color
 
-  def initialize(name, offsets)
+  def initialize(name, offsets, renamed = [])
     @name = name
     @draw_data = []
     @offset_x = offsets[:offset_x]
     @offset_y = offsets[:offset_y]
+    @renamed = renamed
     draw_body
   end
 
   def draw_body
     name, @color = process_item(@name)
+
+    renaming_data = renaming_check(name)
+    if renaming_data
+      name = "#{renaming_data[:old_name]} > #{renaming_data[:new_name]}"
+      # dude is the same, just renamed, so body borders are black (not necessary limbs)
+      @color = :black
+    end
     # head center
     head_center_x = 0.5 * Config::DUDE_FRAME_SIZE + @offset_x
     head_center_y = 0.3 * Config::DUDE_FRAME_SIZE + @offset_y
@@ -46,5 +54,12 @@ class Body
 
   def changed?
     return true if @color == :green || @color == :red
+  end
+
+  private
+
+  def renaming_check(name)
+    found = @renamed.select { |item| item[:old_name] == name || item[:new_name] == name }
+    return found.first if found.any?
   end
 end
