@@ -12,6 +12,8 @@ class Limb
     @draw_data = []
     @opts = opts
     @name, @color_limb = process_item(params[:name])
+    body_color = apply_body_color(@opts[:body_color]) if @opts.key?(:body_color)
+    @color_limb = body_color unless body_color.nil? || body_color == :black
 
     draw
   end

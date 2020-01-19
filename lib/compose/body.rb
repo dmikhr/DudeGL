@@ -53,6 +53,7 @@ class Body
   private
 
   def dude_renamed
+    return if @renamed.nil?
     found = @renamed.select { |item| item[:old_name] == @dude_name || item[:new_name] == @dude_name }
     @dude_names = found.first if found.any?
   end
