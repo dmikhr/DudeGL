@@ -5,8 +5,7 @@ Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 class DudeGl
   def initialize(params_list, opts = {})
     if opts.key?(:diff) && opts[:diff] == true
-      @params_list = DiffParams.new(params_list.first, params_list.last).diff_params
-      puts @params_list
+      @params_list = DiffParams.call(params_list)
     else
       @params_list = params_list
     end
