@@ -2,11 +2,13 @@ require 'byebug'
 
 class DiffParams
   class << self
-    def call(params_list)
+    def call(params_list, renamed = nil)
       @params_list1 = params_list.first
       @params_list2 = params_list.last
+      @renamed = renamed
       @diff_params = []
 
+      manage_renamed if !renamed.nil?
       compare_params_lists
       @diff_params.flatten!
     end
@@ -112,6 +114,30 @@ class DiffParams
 
     def remove_empty_params
       @diff_params.select! { |item| item != [] }
+    end
+
+    def manage_renamed
+      @renamed.each do |names|
+        rename_items(@params_list1, names, :old)
+        rename_items(@params_list2, names, :new)
+      end
+    end
+
+    def renamed_name(names)
+      "#{names[:old_name]} > #{names[:new_name]}"
+    end
+
+    def rename_old_item(param_list, names)
+      param_list[:name] = renamed_name(names) if param_list[:name] == names[:old_name]
+    end
+
+    def rename_new_item(param_list, names)
+      param_list[:name] = renamed_name(names) if param_list[:name] == names[:new_name]
+    end
+
+    def rename_items(params_list, names, type)
+      return params_list.each { |item| rename_old_item(item, names) } if type == :old
+      return params_list.each { |item| rename_new_item(item, names) } if type == :new
     end
   end
 end

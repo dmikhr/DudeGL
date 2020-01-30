@@ -18,7 +18,6 @@ class Body
 
   def draw_body
     @dude_name, @color = process_item(@name)
-    rename_dude if dude_renamed
     # head center
     head_center_x = 0.5 * Config::DUDE_FRAME_SIZE + @offset_x
     head_center_y = 0.3 * Config::DUDE_FRAME_SIZE + @offset_y
@@ -48,19 +47,5 @@ class Body
 
   def changed?
     return true if @color == :green || @color == :red
-  end
-
-  private
-
-  def dude_renamed
-    return if @renamed.nil?
-    found = @renamed.select { |item| item[:old_name] == @dude_name || item[:new_name] == @dude_name }
-    @dude_names = found.first if found.any?
-  end
-
-  def rename_dude
-    @dude_name = "#{@dude_names[:old_name]} > #{@dude_names[:new_name]}"
-    # dude is the same, just renamed, so body borders are black (not necessary limbs)
-    @color = :black
   end
 end

@@ -4,14 +4,15 @@ Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
 class DudeGl
   def initialize(params_list, opts = {})
+    opts.key?(:dudes_per_row_max) ? dudes_per_row_max = opts[:dudes_per_row_max] : dudes_per_row_max = nil
+    opts.key?(:renamed) ? @renamed = opts[:renamed] : @renamed = nil
+
     if opts.key?(:diff) && opts[:diff] == true
-      @params_list = DiffParams.call(params_list)
+      @params_list = DiffParams.call(params_list, @renamed)
     else
       @params_list = params_list
     end
     @dudes = []
-    opts.key?(:dudes_per_row_max) ? dudes_per_row_max = opts[:dudes_per_row_max] : dudes_per_row_max = nil
-    opts.key?(:renamed) ? @renamed = opts[:renamed] : @renamed = nil
     @locations = DudesLocation.new(@params_list, dudes_per_row_max)
 
     build_dudes
