@@ -3,8 +3,12 @@ require_relative 'config'
 class Render
   attr_reader :contents
 
+  HEADER = %Q[<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">]
+
   def initialize(elements, width = Config::DUDE_FRAME_SIZE, height = Config::DUDE_FRAME_SIZE)
     code = []
+    code << HEADER
     code << %Q[<svg width="#{width}" height="#{height}" style="background:white" xmlns="http://www.w3.org/2000/svg">]
     elements.each { |element| code << hash_to_svg(element) }
     code << %Q[</svg>]
