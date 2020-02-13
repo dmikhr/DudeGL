@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 
 class DiffParams
   class << self
@@ -10,7 +10,8 @@ class DiffParams
 
       manage_renamed if !renamed.nil?
       compare_params_lists
-      @diff_params.flatten!
+
+      @diff_params#.flatten!
     end
 
     private

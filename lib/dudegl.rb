@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 # require all filder from current dir and subdirectories
 Dir[File.dirname(__FILE__) + '/**/*.rb'].each {|file| require_relative file }
 
@@ -13,6 +13,7 @@ class DudeGl
       @params_list = params_list
     end
     @dudes = []
+
     @locations = DudesLocation.new(@params_list, dudes_per_row_max)
 
     build_dudes
