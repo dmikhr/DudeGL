@@ -14,6 +14,7 @@ class DudeGl
     end
     @dudes = []
 
+    @params_list = @params_list.flatten
     @locations = DudesLocation.new(@params_list, dudes_per_row_max)
 
     build_dudes
