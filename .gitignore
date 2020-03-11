@@ -1,6 +1,7 @@
 .DS_Store
 .byebug_history
 *.gem
+*.svg
 
 # Rubocop log made by rubocop > cop.log
 cop.log
