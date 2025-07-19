@@ -6,7 +6,9 @@
 Can be used as a visually intuitive tool for code refactoring and teaching OOP concepts ([see example](https://github.com/dmikhr/DudeGL/wiki/Git-diff-visualization)). Written in Ruby.
 
 ✅ Based on Ivan Nemytchenko [presentation](https://www.youtube.com/watch?v=MWGfwgL-934) about visual methods in OOP.
+
 ✅ Featured on Ruby Rogues software engineering [Podcast #668](https://podcasts.apple.com/gb/podcast/rules-of-oop-in-pictures-with-ivan-nemytchenko-ruby-668/id1237406856?i=1000683474802). 
+
 ✅ Gem is [avaliable](https://rubygems.org/gems/dudegl/versions/0.2.4) on RubyGems official package repository. 
 
 **Corresponding projects**:
